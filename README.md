@@ -85,9 +85,37 @@ Scan the QR code with WhatsApp (Linked Devices), and your bot is live!
 | `npm run add-knowledge` | Manually add/edit/delete knowledge entries |
 | `npm run test:chat` | Test AI responses interactively without WhatsApp |
 
-### Customizing Personality
+### 🎭 Customizing Personality
 
-Edit `src/ai/promptBuilder.ts` (or use `promptBuilder.example.ts` as a template) to fine-tune the system prompt, enforcing specific character traits or rules.
+To give your bot a unique personality, you need to configure the `PromptBuilder`.
+
+1.  **Create your configuration**:
+    Copy the example file `src/ai/promptBuilder.example.ts` to `src/ai/promptBuilder.ts`.
+    *(Note: `src/ai/promptBuilder.ts` is git-ignored so your custom prompts remain private)*
+
+    ```bash
+    cp src/ai/promptBuilder.example.ts src/ai/promptBuilder.ts
+    # Or on Windows Command Prompt:
+    # copy src\ai\promptBuilder.example.ts src\ai\promptBuilder.ts
+    ```
+
+2.  **Edit `src/ai/promptBuilder.ts`**:
+    Open the file and modify the `buildSystemPrompt()` method. This is where you define the bot's name, hobbies, writing style, and rules.
+
+    ```typescript
+    // Example inside src/ai/promptBuilder.ts
+    private buildSystemPrompt(): string {
+        return `Kamu adalah [BOT_NAME].
+        
+        KARAKTER:
+        - Ramah, lucu, dan suka membantu.
+        - Menggunakan bahasa gaul/santai.
+        
+        INSTRUKSI:
+        - Jawab pertanyaan dengan singkat.
+        - Jangan terlalu formal.`;
+    }
+    ```
 
 ## 📂 Project Structure
 
