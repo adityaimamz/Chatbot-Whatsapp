@@ -136,4 +136,4 @@ This project uses [whatsapp-web.js](https://wwebjs.dev/), which is not an offici
 
 ## 📄 License
 
-MIT © [Your Name]
+MIT © 
